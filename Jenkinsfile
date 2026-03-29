@@ -3,12 +3,13 @@ pipeline {
     stages {
         stage ('Clone Repo') {
             steps {
-                git url:'https://github.com/vaibhavbankar12/todo-application.git'
+                git credentialsId: 'githut-credentials' 
+                url:'https://github.com/vaibhavbankar12/todo-application.git'
             }
         }
         stage('Build'){
             steps{
-                sh 'mvn clean package -dskipTests'
+                sh 'mvn clean package -DskipTests'
             }
         }
     }
