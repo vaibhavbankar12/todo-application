@@ -1,10 +1,11 @@
 pipeline {
     agent any
+    
     stages {
         stage ('Clone Repo') {
             steps {
-                git credentialsId: 'githut-credentials' 
-                url:'https://github.com/vaibhavbankar12/todo-application.git'
+                git credentialsId: 'github-credentials',
+                	url:'https://github.com/vaibhavbankar12/todo-application.git'
             }
         }
         stage('Build'){
